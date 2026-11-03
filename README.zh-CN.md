@@ -59,7 +59,7 @@ raco pkg install crc
 
 完整的参数、契约、错误语义、增量寄存器和流式处理请查阅
 [Scribble API 文档](crc/scribblings/crc.scrbl)。独立的
-[可执行入门示例](examples/quickstart.rkt)验证 CRC-32、分块计算、
+[可执行入门示例](crc/examples/quickstart.rkt)验证 CRC-32、分块计算、
 输入端口和自定义 CRC-16/GENIBUS 参数；示例不访问网络或硬件。
 
 在本地检出的仓库根目录（先安装 Racket 及 `raco`）运行：
@@ -67,7 +67,7 @@ raco pkg install crc
 ```sh
 raco pkg install --auto --link "$(pwd)"
 raco test -p crc
-racket examples/quickstart.rkt
+racket crc/examples/quickstart.rkt
 raco setup --check-pkg-deps -l crc
 ```
 

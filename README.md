@@ -73,7 +73,7 @@ fixnum kernel; other byte-aligned widths use a per-byte lookup table. Throughput
 
 The [Scribble API reference](crc/scribblings/crc.scrbl) defines all presets,
 contracts, parameter meanings, error behavior, incremental registers and
-streaming. A checked, standalone [quickstart](examples/quickstart.rkt) covers
+streaming. A checked, standalone [quickstart](crc/examples/quickstart.rkt) covers
 CRC-32, chunked input, streams and a custom CRC-16/GENIBUS configuration.
 There is no hardware or network access in the example.
 
@@ -82,7 +82,7 @@ From a local checkout (Racket and its `raco` tools installed):
 ```sh
 raco pkg install --auto --link "$(pwd)"
 raco test -p crc
-racket examples/quickstart.rkt
+racket crc/examples/quickstart.rkt
 raco setup --check-pkg-deps -l crc
 ```
 
