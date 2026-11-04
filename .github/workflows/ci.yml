@@ -27,11 +27,18 @@ jobs:
         uses: Bogdanp/setup-racket@v1.12
         with:
           version: 'stable'
+      - name: Reject checked-in generated Scribble output
+        shell: bash
+        run: |
+          if git ls-files -- 'crc/doc/**' | grep -q .; then
+            echo "::error::Generated documentation under crc/doc/ must not be committed."
+            exit 1
+          fi
       - name: Install package
         run: raco pkg install --auto --link "$(pwd)"
       - name: Run tests
         run: raco test -p crc
       - name: Run documented quickstart
-        run: racket examples/quickstart.rkt
+        run: racket crc/examples/quickstart.rkt
       - name: Build Scribble manual and verify package dependencies
         run: raco setup --check-pkg-deps -l crc
